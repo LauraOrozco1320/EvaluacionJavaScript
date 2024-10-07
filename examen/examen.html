@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="examen.css">
+    <title>Tienda Virtual de Bicicletas</title>
+</head>
+<body>
+    <header>
+        <h1>Tienda de Bicicletas</h1>
+        <button id="cart-button">Carrito (0)</button>
+    </header>
+    <main>
+        <div class="product-grid">
+            <div class="product">
+                <img src="bike.jpg" alt="Bicicleta" />
+                <h3>Bicicleta</h3>
+                <p>$120.00</p>
+                <button class="add-to-cart">Agregar al carrito</button>
+            </div>
+            <!-- Repite el bloque anterior para más productos -->
+        </div>
+    </main>
+    <aside id="cart-sidebar">
+        <h2>Mi pedido</h2>
+        <ul id="order-list"></ul>
+        <p id="total">Total: $0.00</p>
+        <button id="checkout-button">Checkout</button>
+        <button id="close-cart" class="close">✖</button>
+    </aside>
+    <script src="examen.js"></script>
+</body>
+</html>

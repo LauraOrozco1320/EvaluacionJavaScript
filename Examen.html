@@ -1,0 +1,300 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}     
+    .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.block {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.large-img {
+    width: 100%;
+    height: auto;
+}
+
+.text {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    margin: 10px 0;
+    padding-right: 150px;
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Aplica negrita al texto */
+}
+.text2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    margin: 10px 0;
+    padding-right: 180px;
+    color: #a7a7a7; /* Color del texto */
+    
+}
+.cart-button {
+    width: 40px;
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+@media (max-width: 768px) {
+        .text {
+            font-size: 12px;
+        }
+        .text2 {
+            font-size: 10px;
+        }
+        .cart-button {
+            width: 40px;
+        }
+        .block {
+            width: 150px; /* Ajusta el ancho de los bloques */
+            height: 200px; /* Ajusta la altura si es necesario */
+        }
+    }
+    @media (max-width: 480px) {
+        .text {
+            font-size: 10px;
+        }
+        .text2 {
+            font-size: 8px;
+        }
+        .cart-button {
+            width: 40px;
+        }
+        .block {
+            width: 100px; /* Ajusta el ancho de los bloques para pantallas muy pequeñas */
+            height: 150px; /* Ajusta la altura si es necesario */
+        }
+    }
+/* Estilo del sidebar */
+#cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Oculto inicialmente */
+    width: 400px; /* Ancho del sidebar */
+    height: 100%; /* Alto del sidebar */
+    background-color: #fff; /* Color de fondo blanco */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: right 0.3s ease; /* Animación al deslizar */
+    padding: 20px; /* Espaciado interno */
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+}
+
+/* Mostrar el sidebar */
+#cart-sidebar.active {
+    right: 0; /* Mostrar el sidebar */
+}
+
+/* Estilos de los productos en el sidebar */
+#order-list {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0;
+}
+
+#order-list li {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: space-between; /* Espacio entre imagen y texto */
+    padding: 5px ; /* Espaciado entre productos */
+   
+}
+
+.product-image {
+    width: 50px; /* Tamaño de la imagen */
+    height: auto;
+    margin-right: 10px; /* Espacio entre imagen y texto */
+}
+
+.product-info {
+    flex-grow: 1; /* Permitir que este elemento ocupe el espacio restante */
+    display: flex; /* Usar flexbox para alinear nombre y precio */
+    justify-content: space-between ; /* Opcional: Separar el nombre y el precio */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.product-name {
+    color: #555; /* Color del precio */
+    margin: 0; /* Sin márgenes */
+}
+
+.product-price {
+    margin-left: 25px; /* Ajusta este valor para aumentar la distancia */
+    margin: 0; /* Sin márgenes */
+    font-weight: bold;
+}
+
+.remove-item {
+    cursor: pointer; 
+    color: rgb(197, 192, 192); 
+    font-weight: bold; 
+}
+
+/* Estilo para el total */
+#total {
+    display: flex; 
+    justify-content: space-between;
+    font-size: 18px; 
+    margin-top: 20px; 
+    font-weight: bold; 
+    background-color: #f0f0f0; 
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+#total span {
+    margin-left: 15px; 
+}
+/* Estilo para el botón de checkout */
+#checkout-button {
+    width: 100%; 
+    padding: 10px; 
+    background-color: #82bd84; 
+    color: white;
+    border: none; 
+    cursor: pointer; 
+    font-size: 16px; 
+    margin-top: 10px; 
+    border-radius: 5px; 
+}
+
+/* Cambios al pasar el mouse sobre el botón de checkout */
+#checkout-button:hover {
+    background-color: #45a049; 
+}
+</style>
+</head>
+<body>
+    <main>
+    <div class="container">
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+        <div class="block">
+            <img src="C:\Users\Formacion\Desktop\img examen\bici.jpg" alt="Imagen Grande 1" class="large-img">
+            <p class="text">$120,00</p>
+            <p class="text2">Bike</p>
+            <button class="cart-button">
+                <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="" class="small-img">
+            </button>
+        </div>
+    </div>
+</main>
+<aside id="cart-sidebar">
+    <button id="close-cart" class="close">✖</button>
+    <h2>My order</h2>
+    <ul id="order-list">
+        <li>
+            <img src="file:///C:/Users/Formacion/Desktop/img%20examen/icon_shopping_cart_notification.svg" alt="Bike" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Bicycle</p>
+                <p class="product-price">$130.00</p>
+            </div>
+            <span class="remove-item">✖</span>
+        </li>
+    </ul>
+    <div id="total">
+        <span>Total:</span>
+        <span class="total-value">$0.00</span>
+    </div>
+    <button id="checkout-button">Checkout</button>
+    
+    
+</aside>
+<script src="examen.js"></script>
+</body>
+</html>
